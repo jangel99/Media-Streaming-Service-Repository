@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12 mb-3">
+            <div class="card shadow card-info" style="background-color: #AAAAAA">
+                <div class="card-body rounded">
+                    <div class="d-flex">
+                        <img class="rounded" src="{{ img }}">
+                        <div class="m-5">
+                            <h1>{{ title }}</h1>
+                            <div class="rounded p-3 mb-3" style="background-color: #F5B041">
+                                <p>{{ description }}</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <p><i class="bi bi-star-fill"></i> : {{ rating }}</p>
+                                        <p><i class="bi bi-clock-history"></i> : {{ duration }} Minutes</p>
+                                        <p><b>Year:</b> {{ year }}</p>
+                                        <p><b>Location:</b> {{ location }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <p><b>Genre:</b> {{ genre }}</p>
+                                        <p><b>Director:</b> {{ director }}</p>
+                                        <p><b>Actors:</b> {{ actors }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if  isInList == 0 %}
+                                <form action="{{ path('addToList') }}" method="post">
+                                    <input type="hidden" name="country" value="{{ country }}">
+                                    <input type="hidden" name="id" value="{{ id }}">
+                                    <button type="submit" class="btn btn-outline-danger mt-5"><i class="bi bi-heart"> Add To List</i></button>
+                                </form>
+                            {% else %}
+                                <form action="{{ path('removeFromList') }}" method="post">
+                                    <input type="hidden" name="country" value="{{ country }}">
+                                    <input type="hidden" name="id" value="{{ id }}">
+                                    <button type="submit" class="btn btn-outline-danger mt-5"><i class="bi bi-calendar-x"> Remove From List</i></button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-lg-12 ">
+            <div class="card shadow card-info" style="background-color: #AAAAAA">
+                <div class="card-body">
+                    <h5 class="card-title">Add Comment</h5>
+                    <form action="{{ path('comment') }}" method="post">
+                        <div class="mb-3">
+                            <textarea maxlength="400" class="form-control" name="comment" placeholder="Add a coment Here.."></textarea>
+                        </div>
+                        <input type="hidden" name="country" value="{{ country }}">
+                        <input type="hidden" name="id" value="{{ id }}">
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            <div class="card shadow card-info" style="background-color: #AAAAAA">
+                <div class="card-body">
+                    <h4 class="card-title">Comments</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {% for comment in comments %}
+                                <div class="card mb-4 shadow">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="d-flex">
+                                                    <i class="small bi bi-person-circle" style="color: black; font-size: xx-large"></i>
+                                                    <pre>  </pre>
+                                                    <h5 class="text-black-100 mt-3">{{ comment.userName }}</h5>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                {% if userid == comment.userID %}
+                                                    <form action="{{ path('uncomment') }}" method="post">
+                                                        <input type="hidden" name="country" value="{{ country }}">
+                                                        <input type="hidden" name="id" value="{{ id }}">
+                                                        <input type="hidden" name="commentId" value="{{ comment.id }}">
+                                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                                    </form>
+
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between mb-2">
+                                                    <p>{{ comment.comment }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block nav%}
+    <nav class="navbar navbar-light shadow mb-4 rounded" style="background-color: #277BC0">
+        <span class="navbar-text ms-3">
+            <a href="/MoviesRepository/public/home" class="text-light">Home</a>
+            <tab class="text-light">/</tab>
+            <a class="text-light" href="">{{ title }}</a>
+        </span>
+    </nav>
+{% endblock %}

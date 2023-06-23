@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ServicesController!{% endblock %}
+
+{% block body %}
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="row">
+                        {% for movie in movieList %}
+                            <div class="col-lg-3 mb-3">
+                                <a href="/MoviesRepository/public/home/{{ movie.project }}/movie/{{ movie.id }}" style="text-decoration: none">
+                                    <div class="card shadow" style="border-radius: 10px; height: 420px">
+                                        <div class="card-body">
+                                            <img src="{{ movie.img }}" style="border-radius: 10px; height: 300px; width: auto">
+                                            <h5 class="mt-3" style="color: black">{{ movie.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nav%}
+    <nav class="navbar navbar-light shadow mb-4 rounded" style="background-color: #277BC0">
+        <span class="navbar-text ms-3">
+            <a href="/MoviesRepository/public/home" class="text-light">Home</a>
+            <tab class="text-light">/</tab>
+            <a href="" class="text-light">{{ location }}</a>
+        </span>
+    </nav>
+{% endblock %}

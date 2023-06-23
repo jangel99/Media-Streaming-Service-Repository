@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if status == false %}
+        <h1>Movie Not Found</h1>
+        <h1>
+            <i class="bi bi-cone-striped"></i>
+        </h1>
+    {% else %}
+        {% for movie in movieList %}
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <div class="card shadow card-info" style="background-color: #AAAAAA">
+                        <div class="card-body rounded">
+                            <div class="d-flex">
+                                <img class="rounded" src="{{ movie.img }}">
+                                <div class="m-5">
+                                    <h1>{{ movie.title }}</h1>
+                                    <div class="rounded p-3 mb-3" style="background-color: #F5B041">
+                                        <p>{{ movie.description }}</p>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <p><i class="bi bi-star-fill"></i> : {{ movie.rating }}</p>
+                                                <p><i class="bi bi-clock-history"></i> : {{ movie.duration }} Minutes</p>
+                                                <p>Year: {{ movie.year }}</p>
+                                                <p>Location: {{ movie.locations }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-3">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <p>Genre: {{ movie.genre }}</p>
+                                                <p>Director: {{ movie.director }}</p>
+                                                <p>Actors: {{ movie.actors }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+{% block nav%}
+    <nav class="navbar navbar-light shadow mb-4 rounded" style="background-color: #277BC0">
+        <span class="navbar-text ms-3">
+            <a href="/MoviesRepository/public/home" class="text-light">Home</a>
+            <tab class="text-light">/</tab>
+            <a class="text-light" href="">Result</a>
+        </span>
+    </nav>
+{% endblock %}

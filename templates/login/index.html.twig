@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if is_granted('ROLE_USER') %}
+        <h1>You Are Already Logged In</h1>
+    {% else %}
+        {% if error %}
+            <div class="d-flex justify-content-center mb-2">
+                <div class="col-lg-3">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="d-flex justify-content-center mt-5">
+            <div class="col-lg-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4>Login</h4>
+                        <form action="{{ path('app_login') }}" method="post">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">User Name</label>
+                                <input type="text" class="form-control" id="username" name="_username" aria-describedby="emailHelp" value="{{ last_username }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="_password">
+                            </div>
+                            <button type="submit" class="btn btn-warning">Login</button>
+                        </form>
+                        <div class="d-flex justify-content-center">
+                            <p class="p-2">Not registered yet?</p>
+                            <a class="p-2" href="register">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

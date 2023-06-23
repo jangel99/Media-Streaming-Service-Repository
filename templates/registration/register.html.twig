@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    {% if is_granted('ROLE_USER') %}
+        <h1>You Are Already Registered</h1>
+    {% else %}
+        <div class="d-flex justify-content-center mt-5">
+            <div class="col-lg-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4>Register</h4>
+                        {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.username) }}
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                        {{ form_row(registrationForm.agreeTerms) }}
+
+                        <button type="submit" class="btn btn-warning">Register</button>
+                        {{ form_end(registrationForm) }}
+                        <div class="d-flex justify-content-center">
+                            <p class="p-2">Already have an account? </p>
+                            <a class="p-2" href="login">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

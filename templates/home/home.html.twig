@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row mb-4">
+        <div class="col-lg-12">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="d-flex justify-content-around">
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.0.project }}/movie/{{ top.0.id }}"><img src="{{ top.0.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.1.project }}/movie/{{ top.1.id }}"><img src="{{ top.1.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.2.project }}/movie/{{ top.2.id }}"><img src="{{ top.2.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.3.project }}/movie/{{ top.3.id }}"><img src="{{ top.3.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.4.project }}/movie/{{ top.4.id }}"><img src="{{ top.4.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-around">
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.5.project }}/movie/{{ top.5.id }}"><img src="{{ top.5.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.6.project }}/movie/{{ top.6.id }}"><img src="{{ top.6.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.7.project }}/movie/{{ top.7.id }}"><img src="{{ top.7.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.8.project }}/movie/{{ top.8.id }}"><img src="{{ top.8.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.9.project }}/movie/{{ top.9.id }}"><img src="{{ top.9.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-around">
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.10.project }}/movie/{{ top.10.id }}"><img src="{{ top.10.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.11.project }}/movie/{{ top.11.id }}"><img src="{{ top.11.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.12.project }}/movie/{{ top.12.id }}"><img src="{{ top.12.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.13.project }}/movie/{{ top.13.id }}"><img src="{{ top.13.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                    <div class="card m-2 p-2" style="background-color: #1B1B1B">
+                                        <a href="home/{{ top.14.project }}/movie/{{ top.14.id }}"><img src="{{ top.14.img }}" style="height: 300px; width: 100%"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-lg-4">
+            <a href="/MoviesRepository/public/home/services/Netflix">
+                <div class="card shadow" style="background-color: #F5B041">
+                    <div class="card-body" style="height: 6rem">
+                        <img src="{{ asset('images/netflix.png') }}" alt="" style="width: 10rem">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a href="/MoviesRepository/public/home/services/Disney">
+                <div class="card shadow" style="background-color: #F5B041">
+                    <div class="card-body p-2" style="height: 6rem">
+                        <img src="{{ asset('images/disney.png') }}" alt="" style="width: 9rem">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a href="/MoviesRepository/public/home/services/iTunes">
+                <div class="card shadow" style="background-color: #F5B041">
+                    <div class="card-body p-1" style="height: 6rem">
+                        <img class="mt-2" src="{{ asset('images/itunesLogo.png') }}" alt="" style="width: 13rem">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-lg-4">
+            <a href="/MoviesRepository/public/home/services/Prime Video">
+                <div class="card shadow" style="background-color: #F5B041">
+                    <div class="card-body p-2" style="height: 6rem">
+                        <img src="{{ asset('images/prime_video.png') }}" alt="" style="width: 12rem">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a href="/MoviesRepository/public/home/services/Google Play">
+                <div class="card shadow" style="background-color: #F5B041">
+                    <div class="card-body p-4" style="height: 6rem">
+                        <img src="{{ asset('images/google.png') }}" alt="" style="width: 13rem">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a href="/MoviesRepository/public/home/services/Other">
+                <div class="card shadow" style="background-color: #F5B041">
+                    <div class="card-body p-1" style="height: 6rem">
+                        <h1 class="text-dark mt-3">Others <i class="bi bi-three-dots"></i></h1>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nav%}
+    <nav class="navbar navbar-light shadow mb-4 rounded" style="background-color: #277BC0">
+        <span class="navbar-text ms-3">
+            <a href="" class="text-light">Home</a>
+        </span>
+    </nav>
+{% endblock %}
+
